@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="text-center">
+        <h1 class="text-3xl"><a href="/">SelfTube</a></h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="alert m-5">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        <form method="post" action="/upload" enctype="multipart/form-data" class="mt-5">
+            <input placeholder="Title" class="input input-bordered m-2" name="title">
+            <br>
+            <input placeholder="Author" class="input input-bordered m-2" name="author">
+            <br>
+            <input type="file" accept=".mp4" class="file-input m-2" name="video">
+            <br>
+            <input type="submit" class="btn btn-success" value="Upload">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="text-center">
+        <h1 class="text-3xl">SelfTube</h1>
+        <a href="/upload" class="btn btn-primary mt-2">Upload</a>
+        <ul>
+            {% for video in videos %}
+                <li class="m-3"><a href="/play/{{ video }}"><img src="getthumbnail/{{ splitext(video)[0] }}.png" class="w-1/4 mx-auto">{{ splitext(video)[0].split(".")[1].replace("_", " ") }}<br><span class="text-xs">{{ splitext(video)[0].split(".")[0].replace("_", " ") }}</span></a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/media-chrome@1/+esm"></script>
+    </head>
+    <body class="text-center">
+        <h1 class="text-3xl"><a href="/">SelfTube</a></h1>
+        <media-controller class="w-1/2 mx-auto my-5">
+            <video src="/getvideo/{{ video }}" slot="media"></video>
+            <media-control-bar>
+                <media-play-button></media-play-button>
+                <media-seek-forward-button></media-seek-forward-button>
+                <media-seek-backward-button></media-seek-backward-button>
+                <media-mute-button></media-mute-button>
+                <media-volume-range></media-volume-range>
+                <media-time-range></media-time-range>
+                <media-time-display></media-time-display>
+                <media-playback-rate-button></media-playback-rate-button>
+                <media-fullscreen-button></media-fullscreen-button>
+            </media-control-bar>
+        </media-controller>
+        <h2 class="text-xl">{{ splitext(video)[0].split(".")[1].replace("_", " ") }}</h2>
+        <h3 class="text-lg">by {{ splitext(video)[0].split(".")[0].replace("_", " ") }}</h3>
+        <a href="/getvideo/{{ video }}" class="btn" download>Download</a>
+    </body>
+</html>
