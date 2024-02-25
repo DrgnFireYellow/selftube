@@ -11,6 +11,9 @@ ALLOWED_EXTENSIONS = [".mp4"]
 app.config["SECRET_KEY"] = os.urandom(32)
 
 
+os.makedirs("videos", exist_ok=True)
+os.makedirs("thumbnails", exist_ok=True)
+
 @app.route("/")
 def home():
     videos = os.listdir("videos")
